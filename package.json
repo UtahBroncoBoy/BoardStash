@@ -1,0 +1,11 @@
+{
+  "name": "boardstash",
+  "version": "1.0.0",
+  "description": "Application to make managing billboard inventory more efficiently.",
+  "main": "index.js",
+  "scripts": {
+    "test": "ava ."
+  },
+  "author": "Jeff Fredericks",
+  "license": "ISC"
+}
