@@ -6,11 +6,15 @@ export default class {
    * @param {*} rate 
    * @return the instance of the Billboard class
    */
-  constructor(faceNumber, rateLevel = 'Average', shortTermRate, longTermRate) {
+  constructor(id, faceNumber, rateLevel = 'Average') {
+    this._id = id;
     this._faceNumber = faceNumber;
     this._rateLevel = rateLevel;
-    this._rate = rate;
-    this._shortTermRate = shortTermRate;
-    this._longTermRate = longTermRate;
-  } 
+  }
+  get faceNumber(){return this._faceNumber;}
+  get rateLevel() {return this._rateLevel;}
+
+  set faceNumber(faceNumber){this._faceNumber = faceNumber;}
+  set rateLevel(rateLevel){this._rateLevel = rateLevel;}
+
 };
