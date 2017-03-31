@@ -7,7 +7,7 @@ let database;
 export const connect = () => {
   MongoClient.connect(url,(err, db) => {
     if(err) {
-      console.error(`There was an error connecting to ${collectionName}`);
+      console.error(`There was an error connecting to ${databaseName}`);
       throw(err);
     }
     database = db;
@@ -15,7 +15,3 @@ export const connect = () => {
     return db;
   });
 }
-
-//insert
-
-//find
