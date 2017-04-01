@@ -1,3 +1,5 @@
+//RateLevel class
+
 export default class {
   /**
    * 

@@ -13,7 +13,7 @@ import RateLevelRoute from './routes/rateLevelRoute';
 //create express application
 const app = Express();
 
-//set port 
+//assign port 
 const port = process.env.PORT || 5000
 
 //load data sets
