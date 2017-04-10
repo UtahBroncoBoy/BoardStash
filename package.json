@@ -1,7 +1,7 @@
 {
   "name": "boardstash",
   "version": "1.0.0",
-  "description": "Application to make managing billboard inventory more efficiently.",
+  "description": "Application to make managing billboard inventory more efficient.",
   "main": "index.js",
   "scripts": {
     "test": "ava .",
