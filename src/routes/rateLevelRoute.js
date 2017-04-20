@@ -9,7 +9,7 @@ const router = new Router();
 
 //function used to get all rateLevels from the database
 const getAllRates = async() => {
-  const rates = await getCollection('rates');
+  const rates = await getCollection('rateLevel');
 
   return await ( await rates.find({})).toArray();
 }
