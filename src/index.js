@@ -21,7 +21,7 @@ const app = Express();
 //assign port 
 const port = process.env.PORT || 4343
 
-//load data sets if it is a development environment
+//clear and load data sets if it is a development environment
 if(ENV == 'development'){
   const setupDataEnvironment = async() => {
     await deleteData();
@@ -33,6 +33,7 @@ if(ENV == 'development'){
 
 //use body-parser in express application
 app.use(BodyParser.json());
+app.use(cors());
 
 //use routes in express application
 app.use('/billboards', BillboardRoute);
