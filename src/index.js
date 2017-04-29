@@ -1,10 +1,12 @@
 //import dependencies
 import Express from 'express';
 import BodyParser from 'body-parser';
+import cors from 'cors';
 
 //import data sets
 import {loadBillboardData} from './data/data';
 import {loadRateLevelData} from './data/data';
+import {deleteData} from './data/data';
 
 //import routes
 import BillboardRoute from './routes/billboardRoute';
@@ -17,13 +19,17 @@ const ENV = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 const app = Express();
 
 //assign port 
-const port = process.env.PORT || 5000
+const port = process.env.PORT || 4343
 
 //load data sets if it is a development environment
 if(ENV == 'development'){
-loadBillboardData();
-loadRateLevelData();
-}
+  const setupDataEnvironment = async() => {
+    await deleteData();
+    await loadBillboardData();
+    await loadRateLevelData();
+  };
+  setupDataEnvironment();
+};
 
 //use body-parser in express application
 app.use(BodyParser.json());

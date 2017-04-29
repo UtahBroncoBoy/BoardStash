@@ -38,3 +38,12 @@ export const loadRateLevelData = async() => {
   const rateLevelCollection = await getCollection('rateLevel')
   const result = await rateLevelCollection.insertMany(rateLevels);
 };
+
+//function used to clear all database data prior to setting up development data
+export const deleteData = async() => {
+  const billboardCollection = await getCollection('billboards');
+  const rateLevelCollection = await getCollection('rateLevel');
+
+  await billboardCollection.remove({});
+  await rateLevelCollection.remove({});
+};

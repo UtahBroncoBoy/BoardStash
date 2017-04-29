@@ -5,6 +5,8 @@ import {Router} from 'Express';
 import {getCollection} from '../db';
 import {billboards} from '../data/data';
 import Billboard from '../data/Billboard';
+import uuidV4 from 'uuid/v4';
+
 
 //declare router
 const router = new Router();
@@ -27,7 +29,6 @@ const getBillboard = async(_id) => {
 router.get('/', (req, res) => {
   return getAllBillboards()
     .then(billboards => {
-      console.log(billboards);
       return res.json(billboards);
     });
 });
@@ -35,13 +36,21 @@ router.get('/', (req, res) => {
 
 //set route to retrieve one billboard
 router.get('/:billboard', (req, res) => {
-  return getBillboard(req.params.billboard).then(
-    billboard => {
-      console.log(billboard);
+  return getBillboard(req.params.billboard)
+  .then(billboard => {
       return res.json(billboard);
     }
   )
 });
 
-//export router to find all billboards
+
+router.post('/', (req, res) => {
+  let billboard = new Billboard(
+    req.body._id = uuidV4(),
+    req.body._faceNumber,
+    req.body._rateLevel
+  );
+});
+
+//export router
 export default router;
