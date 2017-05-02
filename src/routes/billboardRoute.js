@@ -37,6 +37,11 @@ router.post('/', (req, res) => {
   return res.json(billboard);
 });
 
+router.delete('/:id', (req, res) => {
+  deleteBillboard(req.params._id);
+  res.send(`Item ${req.params} has been deleted`);
+});
+
 
 //function used to get all billboards from the database
 const getAllBillboards = async() => {
@@ -57,5 +62,10 @@ const storeBillboard = async(billboard) => {
   const billboardCollection = await getCollection('billboards');
   return billboardCollection.insertOne(billboard);
 };
+
+const deleteBillboard = async(billboardID) => {
+  const billboardCollection = await getCollection('billboards');
+  billboardCollection.deleteOne({_id: billboardID});
+}
 
 export default router;
