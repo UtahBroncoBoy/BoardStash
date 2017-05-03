@@ -5,7 +5,7 @@ import { MongoClient } from 'mongodb';
 const mongoPort = '27017'
 const databaseName = 'billboards'
 
-const mongoUri = process.env.MONGO_URI || `mongodb://localhost:${mongoPort}/${databaseName}`;
+const mongoUri = process.env.MONGO_URI || `mongodb://jeffwfredericks:Nov141996@ds129641.mlab.com:29641/boardstash`;
 
 //function used to connect to mongo database
 const connect = async () => await MongoClient.connect(mongoUri);

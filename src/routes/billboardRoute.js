@@ -1,4 +1,4 @@
-import {Router} from 'Express';
+import {Router} from 'express';
 import {getCollection} from '../db';
 import {billboards} from '../data/data';
 import Billboard from '../data/Billboard';
@@ -26,7 +26,7 @@ router.get('/:billboard', (req, res) => {
   )
 });
 
-
+//set route to create a billboard
 router.post('/', (req, res) => {
   let billboard = new Billboard(
     req.body._id,
@@ -37,9 +37,10 @@ router.post('/', (req, res) => {
   return res.json(billboard);
 });
 
+//set route to delete a billboard
 router.delete('/:id', (req, res) => {
-  deleteBillboard(req.params._id);
-  res.send(`Item ${req.params} has been deleted`);
+  deleteBillboard(req.params.id);
+  res.send(`Item ${req.params.id} has been deleted`);
 });
 
 
@@ -63,6 +64,7 @@ const storeBillboard = async(billboard) => {
   return billboardCollection.insertOne(billboard);
 };
 
+//function used to delete a billboard
 const deleteBillboard = async(billboardID) => {
   const billboardCollection = await getCollection('billboards');
   billboardCollection.deleteOne({_id: billboardID});

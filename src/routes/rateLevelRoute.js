@@ -1,5 +1,5 @@
 //import dependencies
-import {Router} from 'Express';
+import {Router} from 'express';
 
 //import getCollection function from db.js (Which connects to the database and retrieves a collection.)
 import {getCollection} from '../db';
