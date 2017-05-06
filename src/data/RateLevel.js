@@ -9,10 +9,9 @@ export default class {
    * @param {*} long 
    * @return instance of the RateLevel class
    */
-  constructor(id, name, short, long){
-    this._id = id;
-    this._name = name;
-    this._shortTerm = short;
-    this._longTerm = long;
+  constructor(name, short, long){
+    this.name = name;
+    this.shortTerm = short;
+    this.longTerm = long;
   };
 }

@@ -1,6 +1,3 @@
-//import dependencies
-import uuidV4 from 'uuid/v4';
-
 //import classes
 import Billboard from './Billboard';
 import RateLevel from './RateLevel';
@@ -9,19 +6,19 @@ import RateLevel from './RateLevel';
 import {getCollection} from '../db';
 
 //create Billboard instances
-let board103 = new Billboard(uuidV4(), 103, undefined);
-let board105 = new Billboard(uuidV4(), 105, 'Above Average');
-let board106 = new Billboard(uuidV4(), 106, 'Above Average');
-let board107 = new Billboard(uuidV4(), 107,'Below Average');
-let board111 = new Billboard(uuidV4(), 111, 'Low');
-let board115 = new Billboard(uuidV4(), 115, 'Below Average');
+let board103 = new Billboard(103, undefined);
+let board105 = new Billboard(105, 'Above Average');
+let board106 = new Billboard(106, 'Above Average');
+let board107 = new Billboard(107,'Below Average');
+let board111 = new Billboard(111, 'Low');
+let board115 = new Billboard(115, 'Below Average');
 
 //create RateLevel instances
-let highRate = new RateLevel(uuidV4(), 'High', 12000, 10000);
-let aboveAverageRate = new RateLevel(uuidV4(), 'Above Average', 10000, 8000);
-let averageRate = new RateLevel(uuidV4(), 'Average', 8000, 6000);
-let belowAverageRate = new RateLevel(uuidV4(), 'Below Average', 6000, 4000);
-let lowRate = new RateLevel(uuidV4(), 'Low', 4000, 3000);
+let highRate = new RateLevel('High', 12000, 10000);
+let aboveAverageRate = new RateLevel('Above Average', 10000, 8000);
+let averageRate = new RateLevel('Average', 8000, 6000);
+let belowAverageRate = new RateLevel('Below Average', 6000, 4000);
+let lowRate = new RateLevel('Low', 4000, 3000);
 
 //place Billboard and RateLevel instances into arrays
 export const billboards = [board103, board105, board106, board107, board111, board115];

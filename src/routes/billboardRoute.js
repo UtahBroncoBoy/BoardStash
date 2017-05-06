@@ -2,7 +2,6 @@ import {Router} from 'express';
 import {getCollection} from '../db';
 import {billboards} from '../data/data';
 import Billboard from '../data/Billboard';
-import uuidV4 from 'uuid/v4';
 
 
 //declare router
@@ -29,9 +28,8 @@ router.get('/:billboard', (req, res) => {
 //set route to create a billboard
 router.post('/', (req, res) => {
   let billboard = new Billboard(
-    req.body._id,
-    req.body._faceNumber,
-    req.body._rateLevel
+    req.body.faceNumber,
+    req.body.rateLevel
   );
   storeBillboard(billboard);
   return res.json(billboard);
@@ -52,9 +50,9 @@ const getAllBillboards = async() => {
 };
 
 //function used to retrieve and return one billboard from the collection
-const getBillboard = async(_id) => {
+const getBillboard = async(id) => {
   const billboardCollection = await getCollection('billboards');
-  const billboard = await (await billboardCollection.find({_id})).toArray();
+  const billboard = await (await billboardCollection.find({id})).toArray();
   return billboard;
 };
 
@@ -67,7 +65,7 @@ const storeBillboard = async(billboard) => {
 //function used to delete a billboard
 const deleteBillboard = async(billboardID) => {
   const billboardCollection = await getCollection('billboards');
-  billboardCollection.deleteOne({_id: billboardID});
+  billboardCollection.deleteOne({id: billboardID});
 }
 
 export default router;
