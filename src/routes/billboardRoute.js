@@ -65,7 +65,7 @@ const storeBillboard = async(billboard) => {
 //function used to delete a billboard
 const deleteBillboard = async(billboardID) => {
   const billboardCollection = await getCollection('billboards');
-  billboardCollection.deleteOne({id: billboardID});
+  billboardCollection.deleteOne({_id: billboardID});
 }
 
 export default router;
